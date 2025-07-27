@@ -50,9 +50,11 @@ magentaprint "Логи ClickHouse:"
 ls -lah /var/log/clickhouse-server/*
 
 # --- Настройка прослушивания на $CLICKHOUSE_IP через config.d ---
-magentaprint "Настройка ClickHouse на прослушивание на интерфейсе ($CLICKHOUSE_IP) через config.d:"
+magentaprint "Настройка ClickHouse на прослушивание на интерфейсе ($CLICKHOUSE_IP)"
+magentaprint "через $CONFIG"
 cat <<EOF > $CONFIG
 <yandex>
+    <!-- На каком интерфейсе будет слушать ClickHouse -->
     <listen_host>$CLICKHOUSE_IP</listen_host>
 </yandex>
 EOF
