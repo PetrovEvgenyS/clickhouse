@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<yandex>
+
+    <users>
+        <!-- Пользователь: test -->
+        <test>
+            <password>Qq123456</password>
+            <access_management>0</access_management>
+            <networks incl="networks" replace="replace">
+                <ip>0.0.0.0/0</ip>
+            </networks>
+            <!-- Используется профиль: test-profile -->
+            <profile>default</profile>
+            <quota>default</quota>
+            <!-- Ограничение на таблицу 
+            <databases>
+                <logs>
+                    <data>
+                        <filter>role = 'test'</filter>
+                    </data>
+                </logs>
+            </databases> -->
+        </test>
+
+        <!-- Пользователь: superuser с полными правами -->
+        <superuser>
+            <password>Qq1234567</password>
+            <profile>default</profile>
+            <networks incl="networks" replace="replace">
+                <ip>0.0.0.0/0</ip>
+            </networks>
+            <quota>default</quota>
+            <access_management>1</access_management>
+            <allow_introspection_functions>1</allow_introspection_functions>
+            <allow_introspection_settings>1</allow_introspection_settings>
+            <allow_databases_list>1</allow_databases_list>
+            <allow_show_tables>1</allow_show_tables>
+            <allow_create_database>1</allow_create_database>
+            <allow_drop_database>1</allow_drop_database>
+            <allow_create_table>1</allow_create_table>
+            <allow_drop_table>1</allow_drop_table>
+            <allow_alter_table>1</allow_alter_table>
+            <allow_create_view>1</allow_create_view>
+            <allow_drop_view>1</allow_drop_view>
+            <allow_create_materialized_view>1</allow_create_materialized_view>
+            <allow_drop_materialized_view>1</allow_drop_materialized_view>
+            <allow_create_dictionary>1</allow_create_dictionary>
+            <allow_drop_dictionary>1</allow_drop_dictionary>
+            <allow_create_user>1</allow_create_user>
+            <allow_drop_user>1</allow_drop_user>
+            <allow_grant>1</allow_grant>
+            <allow_access_management>1</allow_access_management>
+        </superuser>
+    </users>
+
+    <profiles>
+        <!-- Профиль: default -->
+        <default>
+            <use_uncompressed_cache>0</use_uncompressed_cache>
+            <load_balancing>random</load_balancing>
+        </default>
+
+        <!-- Профиль: myprofile -->
+        <myprofile>
+            <max_memory_usage>20000000000</max_memory_usage>
+            <max_rows_to_read>1000000000</max_rows_to_read>
+            <max_bytes_to_read>100000000000</max_bytes_to_read>
+            <max_result_rows>1000000</max_result_rows>
+            <max_execution_time>600</max_execution_time>
+            <max_columns_to_read>30</max_columns_to_read>
+            <readonly>1</readonly>
+        </myprofile>
+
+        <!-- Профиль: test-profile -->
+        <test-profile>
+            <max_memory_usage>20000000000</max_memory_usage>
+            <max_rows_to_read>1000000000</max_rows_to_read>
+            <max_bytes_to_read>100000000000</max_bytes_to_read>
+            <max_result_rows>1</max_result_rows>
+            <max_execution_time>600</max_execution_time>
+            <max_columns_to_read>30</max_columns_to_read>
+            <readonly>0</readonly>
+        </test-profile>
+    </profiles>
+
+    <quotas>
+        <!-- Квота: default -->
+        <default>
+            <interval>
+                <duration>3600</duration>
+                <queries>0</queries>
+                <errors>0</errors>
+                <result_rows>0</result_rows>
+                <read_rows>0</read_rows>
+                <execution_time>0</execution_time>
+            </interval>
+        </default>
+
+        <!-- Квота: test-quota -->
+        <test-quota>
+            <interval>
+                <duration>120</duration>
+                <queries>3</queries>
+                <errors>2</errors>
+                <result_rows>10000</result_rows>
+                <read_rows>100000000000</read_rows>
+                <execution_time>900</execution_time>
+            </interval>
+            <interval>
+                <duration>86400</duration>
+                <queries>1000</queries>
+                <errors>100</errors>
+                <result_rows>1000000000</result_rows>
+                <read_rows>100000000000</read_rows>
+                <execution_time>10000</execution_time>
+            </interval>
+        </test-quota>
+    </quotas>
+
+</yandex>
