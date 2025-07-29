@@ -39,7 +39,7 @@
 
     - Сохраняем конфигурацию сервера в - `/etc/clickhouse-server/config.d/my-config.xml`
 
-#### 1.4. Меняем владельца:
+#### 1.4. Меняем владельца
 
 ```bash
 chown clickhouse:clickhouse /etc/clickhouse-server/cluster.xml /etc/clickhouse-server/config.d/my-config.xml
@@ -97,7 +97,7 @@ chown clickhouse:clickhouse /etc/clickhouse-server/cluster.xml /etc/clickhouse-s
 
 ### 5. Вставка данных
 
-#### . Вставка данных в шард
+#### Вставка данных в шард
 Теперь пришло время вставки данных в ClickHouse. Мы можем вставлять данные либо в конкретный шард, либо используя distributed таблицу. Для начала вставим данные только в один шард, в первую ноду.
 
 ```sql
@@ -128,9 +128,9 @@ SELECT count() FROM posts_distributed
 
 Видно, что на второй ноде данных в табличке `posts` нету, поскольку мы вставили их прямо в шард. Но они есть в `posts_distributed`, поскольку эта таблица смотрит на оба шарда.
 
-#### . Вставка данных в distributed таблицу
+#### Вставка данных в distributed таблицу
 
-Создайте таблицы аналогично `posts` и `posts_distributed` но с другим именем, например `test` и `test_distributed`.
+Создайте таблицы аналогично `posts` и `posts_distributed`, но с другим именем, например `test` и `test_distributed`.
 
 Вставим данные на первой ноде:
 ```sql
