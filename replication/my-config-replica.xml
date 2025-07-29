@@ -11,7 +11,7 @@
   <!-- Настройка кластера -->
   <!-- В основном конфиге удалите содержимое в remote_servers или нужно его закоментировать -->
   <remote_servers incl="clickhouse_cluster_replica"></remote_servers>
-  <include_from>/etc/clickhouse-server/cluster.xml</include_from>
+  <include_from>/etc/clickhouse-server/cluster-replica.xml</include_from>
 
   <zookeeper incl="zookeeper-servers" optional="true" />
   <macros incl="macros" optional="true" />
