@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<yandex>
+
+    <clickhouse_cluster_replica>
+        <!-- Название кластера -->
+        <my_cluster>
+            <!-- Шард 1 -->
+            <shard>
+                <!-- Указывает на внутреннюю репликацию внутри шарда. -->
+                <internal_replication>true</internal_replication>
+                <!-- Реплика 1 для шарда 1 -->
+                <replica>
+                    <!-- Первая нода в нашем кластере -->
+                    <host>10.100.10.1</host>
+                    <port>9000</port>
+                </replica>
+
+                <!-- Реплика 2 для шарда 1 -->
+                <replica>
+                    <!-- Вторая нода в нашем кластере -->
+                    <host>10.100.10.2</host>
+                    <port>9000</port>
+                </replica>
+            </shard>
+        </my_cluster>
+    </clickhouse_cluster_replica>
+
+    <!--  Этот блок содержит информацию о сервере ZooKeeper, который обеспечивает координацию и управление в распределенной системе. -->
+    <zookeeper-servers>
+        <!-- Узел в конфигурации ZooKeeper с индексом 1. ZooKeeper ID. -->
+        <node index="1">
+            <host>10.100.10.1</host>
+            <port>2181</port>
+        </node>
+
+        <node index="2">
+            <host>10.100.10.2</host>
+            <port>2181</port>
+        </node>
+
+        <node index="3">
+            <host>10.100.10.3</host>
+            <port>2181</port>
+        </node>
+    </zookeeper-servers>
+
+    <!-- Этот блок содержит макросы, которые могут использоваться для параметризации конфигурации. -->
+    <macros>
+        <!-- Название кластера -->
+        <cluster>my_cluster</cluster>
+        <shard>shard_01</shard>
+        <database>default</database>
+
+        <!-- ВАЖНО! Поменяй значение replica на каждом узле (Имя узла(реплики)). -->
+        <replica>10.100.10.1</replica>
+    </macros>
+
+</yandex>
